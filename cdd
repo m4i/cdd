@@ -115,7 +115,7 @@ _cdd_cd() {
 
   local match="$(grep "^$key:" "$CDD_FILE")"
   if [ -n "$match" ]; then
-    local dir="${match#*:}"
+    local dir="${match##*:}"
     echo "cd $dir"
     cd "$(echo "$dir" | sed "s;^~;$HOME;")"
 
