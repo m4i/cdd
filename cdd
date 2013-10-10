@@ -160,7 +160,7 @@ _cdd_delete() {
 
   if grep "^$key:" "$CDD_FILE" >/dev/null; then
     sed -i.tmp -e "/^$key\:/d" "$CDD_FILE"
-    rm "$CDD_FILE.tmp"
+    rm -f "$CDD_FILE.tmp"
   else
     echo "cdd: $key: No such key"$'\n' >&2
     _cdd_help
@@ -192,7 +192,7 @@ _cdd_register() {
 
   if [ -f "$CDD_FILE" ]; then
     sed -i.tmp -e "/^$key\:/d" "$CDD_FILE"
-    rm "$CDD_FILE.tmp"
+    rm -f "$CDD_FILE.tmp"
   fi
 
   dir="$(echo "$dir" | sed "s;^$HOME;~;")"
