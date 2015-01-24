@@ -193,6 +193,8 @@ _cdd_register() {
   if [ -f "$CDD_FILE" ]; then
     sed -i.tmp -e "/^$key\:/d" "$CDD_FILE"
     rm -f "$CDD_FILE.tmp"
+  else
+    touch "$CDD_FILE"
   fi
 
   dir="$(echo "$dir" | sed "s;^$HOME;~;")"
